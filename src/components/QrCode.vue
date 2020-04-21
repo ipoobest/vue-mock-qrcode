@@ -9,12 +9,18 @@
 // console.log(uid)
 import Qrcode from 'v-qrcode/src/index'
 import Fingerprint from 'fingerprintjs'
+import { db } from '../main'
 
 var uid = new Fingerprint().get()
 export default {
   name: 'QrCode',
   mounted () {
     console.log(uid)
+  },
+  methods: {
+    createUser () {
+      return db.collection('user').add({ uid: uid, status: '0' })
+    }
   },
   components: {
     Qrcode
@@ -31,7 +37,3 @@ export default {
 }
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

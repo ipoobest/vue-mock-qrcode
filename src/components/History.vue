@@ -1,25 +1,25 @@
 <template>
   <div>
-    <b-list-group>
-      <b-list-group-item v-for="test in tests" :key="test.id"
-      class="d-flex justify-content-between align-items-center">
-        {{test.meet_id}}
-        <b-badge variant="primary" pill>{{convertTime(test.create_at)}}</b-badge>
+    <b-list-group pill>
+      <b-list-group-item v-for="data in datas" :key="data.id"
+      class="d-flex justify-content-between align-items-center" >
+        {{data.meet_id}}
+        <b-badge variant="primary">{{convertTime(data.create_at)}}</b-badge>
       </b-list-group-item>
     </b-list-group>
   </div>
 </template>
 
 <script>
-import { db } from '../main'
 import Fingerprint from 'fingerprintjs'
+import { db } from '../main'
 
 var uid = new Fingerprint().get()
 export default {
   name: 'QrCodeScan',
   data () {
     return {
-      tests: []
+      datas: []
     }
   },
   methods: {
@@ -39,7 +39,7 @@ export default {
   },
   firestore () {
     return {
-      tests: db.collection('mock_data').where('uid', '==', uid)
+      datas: db.collection('tracking').where('uid', '==', uid)
     }
   }
 }

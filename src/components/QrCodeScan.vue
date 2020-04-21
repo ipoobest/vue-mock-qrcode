@@ -24,7 +24,7 @@ export default {
       if (decodedString.length === 9 || decodedString.length === 10) {
         const createdAt = new Date()
         var meetId = parseInt(decodedString)
-        db.collection('mock_data').add({ uid: uid, meet_id: meetId, create_at: createdAt })
+        db.collection('tracking').add({ uid: uid, meet_id: meetId, create_at: createdAt })
         console.log('succes')
         alert('success ' + decodedString + '!')
       } else {
