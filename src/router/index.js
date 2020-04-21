@@ -1,22 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
+import QrCodeView from '../views/QrCodeView.vue'
+import QrCodeSancView from '../views/QrCodeSancView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'QrCodeView',
+    component: QrCodeView
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/scan',
+    name: 'QrCodeSancView',
+    component: QrCodeSancView
   }
 ]
 
