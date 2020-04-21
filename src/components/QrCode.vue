@@ -8,16 +8,17 @@
 <script>
 // console.log(uid)
 import Qrcode from 'v-qrcode/src/index'
+import Fingerprint from 'fingerprintjs'
 
-var navigatorInfo = window.navigator
-var screenInfo = window.screen
-var uid = navigatorInfo.mimeTypes.length
-uid += navigatorInfo.userAgent.replace(/\D+/g, '')
-uid += navigatorInfo.plugins.length
-uid += screenInfo.height || ''
-uid += screenInfo.width || ''
-uid += screenInfo.pixelDepth || ''
-
+// var navigatorInfo = window.navigator
+// var screenInfo = window.screen
+// var uid = navigatorInfo.mimeTypes.length
+// uid += navigatorInfo.userAgent.replace(/\D+/g, '')
+// uid += navigatorInfo.plugins.length
+// uid += screenInfo.height || ''
+// uid += screenInfo.width || ''
+// uid += screenInfo.pixelDepth || ''
+var uid = new Fingerprint().get()
 export default {
   name: 'QrCode',
   mounted () {
@@ -30,7 +31,7 @@ export default {
     return {
       uuid: uid,
       qrCls: 'qrcode',
-      qrText: uid,
+      qrText: uid.toString(),
       size: 250,
       background: '#fff'
     }
