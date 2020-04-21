@@ -1,6 +1,6 @@
 <template>
   <div class="QrCodeScanView">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <h2 class="header_h2">Scan QR code</h2>
     <QrCodeScan></QrCodeScan>
   </div>
 </template>
@@ -16,3 +16,18 @@ export default {
   }
 }
 </script>
+
+<style>
+.header_h2 {
+  margin-bottom: 20px;
+}
+.QrCodeScanView {
+position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  height: 250px;
+  width: 250px;
+}
+</style>

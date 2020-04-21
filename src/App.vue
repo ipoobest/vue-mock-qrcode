@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ul>
-      <li><h3>Thai care</h3></li>
+      <li><h3 class="header-app">Demo QR Scan</h3></li>
     </ul>
     <div id="nav">
       <router-link to="/">Qr code</router-link> |
@@ -33,7 +33,9 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 ul {
+  height: 60px;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -43,5 +45,10 @@ ul {
 
 li {
   float: center;
+}
+
+.header-app {
+  color: aliceblue;
+  margin-top: 15px;
 }
 </style>
