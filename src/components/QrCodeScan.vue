@@ -6,11 +6,15 @@
 
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader'
-
+import Fingerprint from 'fingerprintjs'
+var uid = new Fingerprint().get()
 export default {
   name: 'QrCodeScan',
   components: {
     QrcodeStream
+  },
+  mounted () {
+    console.log('uid : ' + uid)
   },
   methods: {
     onDecode (decodedString) {
