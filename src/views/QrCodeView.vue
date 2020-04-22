@@ -1,6 +1,5 @@
 <template>
   <div class="QrCode">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <QrCode></QrCode>
   </div>
 </template>

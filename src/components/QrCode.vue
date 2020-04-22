@@ -15,11 +15,23 @@ var uid = new Fingerprint().get()
 export default {
   name: 'QrCode',
   mounted () {
-    console.log(uid)
+    // console.log(uid)
+    // this.createUser()
+    // if (this.checkedUser() != null) {
+    //   console.log('have user')
+    // } else {
+    //   this.checkedUser(uid)
+    // }
   },
   methods: {
-    createUser () {
-      return db.collection('user').add({ uid: uid, status: '0' })
+    createUser (userId) {
+      console.log('mounted')
+      return db.collection('user').add({ uid: this.userId, status: '0' })
+    },
+    checkedUser () {
+      console.log('create')
+      var user = db.collection('user').where('uid', '==', uid)
+      return user
     }
   },
   components: {
