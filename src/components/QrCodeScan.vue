@@ -21,13 +21,14 @@ export default {
   methods: {
     onDecode (decodedString) {
       console.log('text : ' + decodedString.length)
-      if (decodedString.length === 9 || decodedString.length === 10) {
+      if ([9, 10, 36, 37].includes(decodedString.length)) {
+        console.log(decodedString)
         const createdAt = new Date()
-        var meetId = parseInt(decodedString)
-        db.collection('tracking').add({ uid: uid, meet_id: meetId, create_at: createdAt })
+        db.collection('tracking').add({ uid: uid, meet_id: decodedString, create_at: createdAt })
         console.log('succes')
         alert('success ' + decodedString + '!')
       } else {
+        console.log(decodedString.length)
         alert('ไม่สำเร็จ ' + decodedString + '!')
       }
     }

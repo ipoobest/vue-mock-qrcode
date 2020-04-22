@@ -1,6 +1,6 @@
 <template>
   <div class="QrCode">
-  <h2>{{ qrcode }}</h2>
+  <!-- <h2>{{ qrcode }}</h2> -->
   <qrcode :background="background" :size="size" :cls="qrCls" :value="qrText"></qrcode>
   </div>
 </template>
