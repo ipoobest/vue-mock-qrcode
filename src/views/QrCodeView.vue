@@ -44,7 +44,7 @@ export default {
     },
     addUserToFireStore () {
       console.log('firstore : ' + this.uuid)
-      return db.collection('user').add({ uid: this.uuid, status: '5' })
+      return db.collection('user').add({ uid: this.uuid, status: 'ปกติ' })
     }
   }
 }
