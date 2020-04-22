@@ -1,6 +1,6 @@
 <template>
   <div class="QrCode">
-  <h2>{{ uuid }}</h2>
+  <h2>{{ qrcode }}</h2>
   <qrcode :background="background" :size="size" :cls="qrCls" :value="qrText"></qrcode>
   </div>
 </template>
@@ -8,40 +8,21 @@
 <script>
 // console.log(uid)
 import Qrcode from 'v-qrcode/src/index'
-import Fingerprint from 'fingerprintjs'
-import { db } from '../main'
 
-var uid = new Fingerprint().get()
 export default {
   name: 'QrCode',
+  props: ['qrcode'],
   mounted () {
-    // console.log(uid)
-    // this.createUser()
-    // if (this.checkedUser() != null) {
-    //   console.log('have user')
-    // } else {
-    //   this.checkedUser(uid)
-    // }
-  },
-  methods: {
-    createUser (userId) {
-      console.log('mounted')
-      return db.collection('user').add({ uid: this.userId, status: '0' })
-    },
-    checkedUser () {
-      console.log('create')
-      var user = db.collection('user').where('uid', '==', uid)
-      return user
-    }
+    console.log('qrcode + ' + this.qrcode)
   },
   components: {
     Qrcode
   },
   data () {
     return {
-      uuid: uid,
+      uuid: this.uid,
       qrCls: 'qrcode',
-      qrText: uid.toString(),
+      qrText: this.qrcode.toString(),
       size: 300,
       background: '#fff'
     }
